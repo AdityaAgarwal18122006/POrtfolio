@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ALGO RUSH // SYSTEM OVERRIDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+
+    <main id="app-container">
+        <header class="hud">
+            <div class="hud-item score-box">SYS.SCORE: <span id="score">0000</span></div>
+            <div class="hud-item timer-box">UPTIME: <span id="timer">0:00</span></div>
+        </header>
+
+        <section id="command-center">
+            <div class="terminal-header">root@system:~# await incoming_command()</div>
+            <div id="command-display">
+                <span id="command-text">INITIALIZING_SYSTEM</span><span class="cursor">_</span>
+            </div>
+            <div class="controls">
+                <button class="btn action-btn" id="skip-btn">[ SKIP CMD ] -5pts</button>
+                <button class="btn action-btn" id="hint-btn">[ REQ HINT ] -2pts</button>
+            </div>
+        </section>
+
+        <section id="machine-grid">
+            
+            <div class="machine" data-target="stack" id="machine-stack">
+                <svg class="blueprint-diagram" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="3">
+                    <rect x="30" y="60" width="40" height="15" />
+                    <rect x="30" y="40" width="40" height="15" />
+                    <rect x="30" y="20" width="40" height="15" />
+                    <path d="M 50 0 L 50 12 M 43 7 L 50 14 L 57 7" stroke-width="4" stroke="var(--color-success)"/> 
+                </svg>
+                <div class="machine-header">
+                    <div class="title-wrapper">
+                        <span class="machine-title">MEM.STACK // LIFO</span>
+                    </div>
+                    <div class="health-container"><div class="health-fill" id="health-stack"></div></div>
+                </div>
+                <div class="visual-area stack-area" id="vis-stack"></div>
+            </div>
+
+            <div class="machine" data-target="queue" id="machine-queue">
+                <svg class="blueprint-diagram" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="3">
+                    <rect x="25" y="40" width="15" height="20" />
+                    <rect x="45" y="40" width="15" height="20" />
+                    <rect x="65" y="40" width="15" height="20" />
+                    <path d="M 0 50 L 15 50 M 10 45 L 17 50 L 10 55" stroke-width="4" stroke="var(--color-success)"/> 
+                    <path d="M 85 50 L 100 50 M 93 45 L 100 50 L 93 55" stroke-width="4" stroke="var(--color-danger)"/> 
+                </svg>
+                <div class="machine-header">
+                    <div class="title-wrapper">
+                        <span class="machine-title">DATA.QUEUE // FIFO</span>
+                    </div>
+                    <div class="health-container"><div class="health-fill" id="health-queue"></div></div>
+                </div>
+                <div class="visual-area queue-area" id="vis-queue"></div>
+            </div>
+
+            <div class="machine" data-target="tree" id="machine-tree">
+                <svg class="blueprint-diagram" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="3">
+                    <circle cx="50" cy="20" r="8" />
+                    <circle cx="25" cy="50" r="8" />
+                    <circle cx="75" cy="50" r="8" />
+                    <circle cx="15" cy="80" r="8" />
+                    <circle cx="35" cy="80" r="8" />
+                    <line x1="50" y1="28" x2="25" y2="42" />
+                    <line x1="50" y1="28" x2="75" y2="42" />
+                    <line x1="25" y1="58" x2="15" y2="72" />
+                    <line x1="25" y1="58" x2="35" y2="72" />
+                </svg>
+                <div class="machine-header">
+                    <div class="title-wrapper">
+                        <span class="machine-title">BIN.TREE // ROOT</span>
+                    </div>
+                    <div class="health-container"><div class="health-fill" id="health-tree"></div></div>
+                </div>
+                <div class="visual-area tree-area" id="vis-tree"></div>
+            </div>
+
+            <div class="machine" data-target="graph" id="machine-graph">
+                <svg class="blueprint-diagram" viewBox="0 0 100 100" stroke="currentColor" fill="none" stroke-width="3">
+                    <circle cx="20" cy="30" r="8" />
+                    <circle cx="80" cy="20" r="8" />
+                    <circle cx="50" cy="50" r="8" />
+                    <circle cx="30" cy="80" r="8" />
+                    <circle cx="70" cy="80" r="8" />
+                    <line x1="26" y1="35" x2="44" y2="45" /> 
+                    <line x1="74" y1="25" x2="56" y2="45" /> 
+                    <line x1="36" y1="75" x2="45" y2="56" /> 
+                    <line x1="64" y1="75" x2="55" y2="56" /> 
+                    <line x1="25" y1="37" x2="27" y2="72" /> 
+                    <line x1="77" y1="27" x2="72" y2="72" /> 
+                    <line x1="38" y1="80" x2="62" y2="80" /> 
+                </svg>
+                <div class="machine-header">
+                    <div class="title-wrapper">
+                        <span class="machine-title">NET.GRAPH // MESH</span>
+                    </div>
+                    <div class="health-container"><div class="health-fill" id="health-graph"></div></div>
+                </div>
+                <div class="visual-area graph-area" id="vis-graph"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="game-over-screen">
+        <h1 class="glitch" data-text="SYSTEM CRASH">SYSTEM CRASH</h1>
+        <div class="stats">
+            <p>FINAL_SCORE: <span id="final-score" class="highlight-green">0</span></p>
+            <p>TOTAL_UPTIME: <span id="final-time" class="highlight-yellow">0:00</span></p>
+        </div>
+        <button class="btn restart-btn" id="restart-btn">> REBOOT_SYSTEM.sh</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
