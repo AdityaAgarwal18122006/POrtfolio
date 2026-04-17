@@ -85,7 +85,7 @@ function updateUptime() {
     let totalSecs = Math.floor(STATE.time / 10);
     let m = Math.floor(totalSecs / 60);
     let s = totalSecs % 60;
-    document.getElementById('timer').innerText = ${m}:${s.toString().padStart(2, '0')};
+    document.getElementById('timer').innerText = `${m}:${s.toString().padStart(2, '0')}`;
 }
 
 function updateScore(points) {
@@ -94,7 +94,7 @@ function updateScore(points) {
 }
 
 function updateHealthUI(m) {
-    m.bar.style.width = ${Math.max(0, m.health)}%;
+    m.bar.style.width = `${Math.max(0, m.health)}%`;
     
     if (m.health < 25) {
         m.bar.style.backgroundColor = 'var(--color-danger)';
@@ -203,8 +203,8 @@ function generateVisualElement(m, animate) {
         m.vis.appendChild(el);
     } else {
         el.className = 'data-node';
-        el.style.left = ${20 + Math.random() * 60}%;
-        el.style.top = ${20 + Math.random() * 60}%;
+        el.style.left = `${20 + Math.random() * 60}%`;
+        el.style.top = `${20 + Math.random() * 60}%`;
         if(animate) el.classList.add('anim-node');
         m.vis.appendChild(el);
     }
